@@ -1,26 +1,7 @@
 
-function showSignup() {
-  document.getElementById('loginForm').classList.add('hidden');
-  document.getElementById('signupForm').classList.remove('hidden');
-}
-function showLogin() {
-  document.getElementById('signupForm').classList.add('hidden');
-  document.getElementById('loginForm').classList.remove('hidden');
-}
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('authContainer').classList.add('hidden');
-  document.getElementById('dashboard').classList.remove('hidden');
-  renderTable();
-});
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('authContainer').classList.add('hidden');
-  document.getElementById('dashboard').classList.remove('hidden');
-  renderTable();
-});
-
-const items = [
+let users = [{ username: 'admin', password: 'admin', role: 'admin' }];
+let currentUser = null;
+let items = [
   { id: 1, name: 'Item A', quantity: 100 },
   { id: 2, name: 'Item B', quantity: 100 },
   { id: 3, name: 'Item C', quantity: 100 },
@@ -42,23 +23,73 @@ const items = [
   { id: 19, name: 'Item S', quantity: 100 },
   { id: 20, name: 'Item T', quantity: 100 },
 ];
+let logs = [];
+
+function showSignup() {
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('signupForm').classList.remove('hidden');
+}
+function showLogin() {
+  document.getElementById('signupForm').classList.add('hidden');
+  document.getElementById('loginForm').classList.remove('hidden');
+}
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const user = document.getElementById('loginUser').value;
+  const pass = document.getElementById('loginPass').value;
+  const found = users.find(u => u.username === user && u.password === pass);
+  if (found) {
+    currentUser = found;
+    document.getElementById('authContainer').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('currentUser').textContent = currentUser.username;
+    if (currentUser.role === 'admin') {
+      document.getElementById('adminPanel').classList.remove('hidden');
+    }
+    renderTable();
+    renderLogs();
+  } else {
+    alert('Invalid credentials');
+  }
+});
+
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const user = document.getElementById('signupUser').value;
+  const pass = document.getElementById('signupPass').value;
+  if (users.find(u => u.username === user)) {
+    alert('Username already exists');
+    return;
+  }
+  const newUser = { username: user, password: pass, role: 'user' };
+  users.push(newUser);
+  alert('Signup successful. Please login.');
+  showLogin();
+});
 
 function renderTable() {
   const tbody = document.getElementById('inventoryBody');
   tbody.innerHTML = '';
   items.forEach(item => {
     const row = document.createElement('tr');
-    row.innerHTML = `<td>\${item.id}</td><td>\${item.name}</td><td>\${item.quantity}</td>
-                     <td><button onclick="withdraw(\${item.id})">Withdraw</button></td>`;
+    row.innerHTML = `
+      <td>${item.id}</td>
+      <td>${item.name}</td>
+      <td>${item.quantity}</td>
+      <td><button onclick="withdraw(${item.id})">Withdraw</button></td>
+    `;
     tbody.appendChild(row);
   });
 }
 
 function withdraw(id) {
   const item = items.find(i => i.id === id);
-  if (item.quantity > 0) {
+  if (item && item.quantity > 0) {
     item.quantity--;
+    logs.push({ item: item.name, user: currentUser.username, time: new Date().toLocaleString() });
     renderTable();
+    renderLogs();
     alert('Withdrawn ' + item.name);
   }
 }
@@ -70,4 +101,30 @@ function searchItem() {
     const name = row.children[1].textContent.toLowerCase();
     row.style.display = name.includes(keyword) ? '' : 'none';
   });
+}
+
+function renderLogs() {
+  const userLog = document.getElementById('userLog');
+  const adminLog = document.getElementById('adminLog');
+  userLog.innerHTML = '';
+  adminLog.innerHTML = '';
+  logs.forEach(log => {
+    const entry = `<li>${log.time} - ${log.user} withdrew ${log.item}</li>`;
+    if (log.user === currentUser.username) {
+      userLog.innerHTML += entry;
+    }
+    if (currentUser.role === 'admin') {
+      adminLog.innerHTML += entry;
+    }
+  });
+}
+
+function addItem() {
+  const name = document.getElementById('newItemName').value.trim();
+  if (!name) return;
+  const id = items.length + 1;
+  items.push({ id, name, quantity: 100 });
+  renderTable();
+  document.getElementById('newItemName').value = '';
+  alert('Item added');
 }
