@@ -2,9 +2,6 @@
 
 A simple web-based warehouse inventory management system built for DES422 final project.
 
-## 📌 Live Demo
-https://<YourUsername>.github.io/warehouse-inventory-app/
-
 ## 🛠️ Technologies
 - **HTML**, **CSS**, **JavaScript** (no frameworks)
 - Frontend-only; uses in-memory mock data
@@ -30,30 +27,20 @@ https://<YourUsername>.github.io/warehouse-inventory-app/
    - **Add new items** (auto-starting at 100 units).  
    - **View all withdrawal logs**.
 
-## 🚀 Getting Started
+## 🚀 How to Use
 
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/<YourUsername>/warehouse-inventory-app.git
-   ```
+1. **Open** `index.html` in any modern browser.  
+2. **Sign up** for a new account or **log in** with:
+   - **Username:** `admin`  
+   - **Password:** `admin`
 
-2. **Open in browser**  
-   - Double-click `index.html`, or  
-   - Visit the [Live Demo](https://<YourUsername>.github.io/warehouse-inventory-app/)
+3. **Try it out**:
+   - Search and withdraw items.  
+   - As admin, add new items and view all logs.
 
-3. **Use the app**  
-   - **Sign up** or log in with `admin`/`admin`.  
-   - Try **searching**, **withdrawing**, and (if admin) **adding items** or **viewing logs**.
+## 📄 Mockup
 
-## 📄 Screenshots
-
-_Add screenshots into a `screenshots/` folder and reference here:_
-
-```
-screenshots/login.png  
-screenshots/dashboard.png  
-screenshots/admin.png
-```
+Open the **`mockup.pdf`** file to view the UI design for all screens.
 
 ## 💾 Data Persistence
 
