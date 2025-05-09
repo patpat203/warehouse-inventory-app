@@ -74,10 +74,10 @@ function renderTable() {
   items.forEach(item => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${item.id}</td>
-      <td>${item.name}</td>
-      <td>${item.quantity}</td>
-      <td><button onclick="withdraw(${item.id})">Withdraw</button></td>
+      <td>\${item.id}</td>
+      <td>\${item.name}</td>
+      <td>\${item.quantity}</td>
+      <td><button onclick="withdraw(\${item.id})">Withdraw</button></td>
     `;
     tbody.appendChild(row);
   });
@@ -109,7 +109,7 @@ function renderLogs() {
   userLog.innerHTML = '';
   adminLog.innerHTML = '';
   logs.forEach(log => {
-    const entry = `<li>${log.time} - ${log.user} withdrew ${log.item}</li>`;
+    const entry = `<li>\${log.time} - \${log.user} withdrew \${log.item}</li>`;
     if (log.user === currentUser.username) {
       userLog.innerHTML += entry;
     }
