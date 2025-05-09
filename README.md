@@ -1,36 +1,67 @@
 # Warehouse Inventory App
 
-This is a simple Warehouse Inventory Web App developed for the DES422 Business Application Development 2024/2 term project.
+A simple web-based warehouse inventory management system built for DES422 final project.
 
-## Features
+## 📌 Live Demo
+https://<YourUsername>.github.io/warehouse-inventory-app/
 
-- **Login / Signup system** for users
-- **Inventory Dashboard**: search and view item list
-- **Withdraw function** with real-time quantity update
-- **Admin-only features** (planned): add items, view withdrawal logs
-- All actions are logged in-memory and presented on the dashboard
+## 🛠️ Technologies
+- **HTML**, **CSS**, **JavaScript** (no frameworks)
+- Frontend-only; uses in-memory mock data
 
-## Technologies Used
+## 🔍 Features
 
-- HTML, CSS, JavaScript
-- No frameworks (React optional but not used)
-- No backend required (uses mock data)
+1. **Signup & Login**  
+   - Users can register new accounts or log in.  
+   - Includes a special **admin** account (`admin`/`admin`).
 
-## How to Run
+2. **Inventory Dashboard**  
+   - Displays 20 items (Item A–T), each starting with **100** units.  
+   - **Search** bar filters items in real time.  
+   - **Withdraw** button reduces quantity immediately.
 
-1. Download or clone this repository.
-2. Open `index.html` for the login/signup page.
-3. Open `dashboard.html` to access the inventory dashboard.
-4. Use a modern browser (Chrome, Firefox, Edge).
+3. **Withdrawal Log**  
+   - Logs each withdrawal with **timestamp** and **username**.  
+   - Regular users see only their own history.  
+   - Admin sees everyone’s logs.
 
-## Note
+4. **Admin Panel**  
+   - Only visible to `admin`.  
+   - **Add new items** (auto-starting at 100 units).  
+   - **View all withdrawal logs**.
 
-- This is a front-end only prototype intended for demonstration purposes.
-- All data resets upon page reload.
+## 🚀 Getting Started
 
-## Project by
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/<YourUsername>/warehouse-inventory-app.git
+   ```
 
-Chanakarn Suwansinpan  
-6422770444  
-Sirindhorn International Institute of Technology  
-Mechanical Engineering Program  
+2. **Open in browser**  
+   - Double-click `index.html`, or  
+   - Visit the [Live Demo](https://<YourUsername>.github.io/warehouse-inventory-app/)
+
+3. **Use the app**  
+   - **Sign up** or log in with `admin`/`admin`.  
+   - Try **searching**, **withdrawing**, and (if admin) **adding items** or **viewing logs**.
+
+## 📄 Screenshots
+
+_Add screenshots into a `screenshots/` folder and reference here:_
+
+```
+screenshots/login.png  
+screenshots/dashboard.png  
+screenshots/admin.png
+```
+
+## 💾 Data Persistence
+
+- All data is stored in-memory (no real backend).  
+- Page reload resets all data.
+
+---
+
+**Chanakarn Suwansinpan**  
+Sirindhorn International Institute of Technology, TU  
+DES422 Web App 2024/2 Term Project
