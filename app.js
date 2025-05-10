@@ -21,12 +21,11 @@ let items = [
   { id: 17, name: 'Item Q', quantity: 100 },
   { id: 18, name: 'Item R', quantity: 100 },
   { id: 19, name: 'Item S', quantity: 100 },
-  { id: 20, name: 'Item T', quantity: 100 },
+  { id: 20, name: 'Item T', quantity: 100 }
 ];
 let logs = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-
   document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const user = document.getElementById('loginUser').value;
