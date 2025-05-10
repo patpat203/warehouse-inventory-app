@@ -1,47 +1,5 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 20px;
-}
-.container {
-  max-width: 300px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
-button {
-  background: steelblue;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-.toggle-link {
-  text-align: center;
-  color: steelblue;
-  cursor: pointer;
-}
-.hidden {
-  display: none;
-}
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-  background: white;
-}
-th, td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
+body { font-family: sans-serif; margin: 20px; }
+input, button { margin: 5px; padding: 6px; }
+.hidden { display: none; }
+table { border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 8px 12px; border: 1px solid #ccc; }
