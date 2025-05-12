@@ -35,10 +35,6 @@ Firebase setup is still available in the code for future expansion but is **not 
    - Password: `admin`
 3. Withdraw items, search, or (if admin) add new items and view logs.
 
-## Demo Video
-
-[Watch the demo video](https://drive.google.com/file/d/1LrVhM5P7SzL9An-MGHV4v88y2_dlL5ge/view?usp=drivesdk)
-
 ## Author
 
 Chanakarn Suwansinpan — 6422770444  
